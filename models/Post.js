@@ -7,15 +7,15 @@ const Rate = require("./Rate");
 // Create Post Schema and model
 const PostSchema = new Schema({
 
-    user:   {type: UserShort,
-            required:[true,'userShort for post is required']},
+    user:   UserShort,
+            required:[true,'userShort for post is required'],
     
     image:  {type: String,
             required:[true,'image string for post is required']},
     
-    comments: {type: [Comment]},
+    comments: [Comment],
 
-    rates: {type: [Rate]},
+    rates:  [Rate],
 
     date: {type: [Date],
             default:Date.now},

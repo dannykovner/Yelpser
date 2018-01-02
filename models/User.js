@@ -5,28 +5,23 @@ const Post = require("./Post");
 
 // Create user Schema and model
 const UserSchema = new Schema({
-    // first_name: {
-    //     type: String,
-    //     required:[true,'first name is required']
-    // },
-    // last_name:{
-    //     type: String,
-    //     required:[true,'last name is required']
-    // }
-    user:   {type: UserShort,
-            required:[true,'userShort for user is required']},
+    user:   UserShort,
+            required:[true,'userShort for user is required'],
     
-    posts:  {type: [Post]},
+    posts:  [Post],
     
-    folllowing: {type: [UserShort]},
+    folllowing: [UserShort],
 
-    folllowers: {type: [UserShort]},
+    folllowers: [UserShort],
 
-    requestFollowMe: {type: [UserShort]},
+    requestFollowMe: [UserShort],
     
     requestFollowOthers: {type: [Number]},
 });
 
+UserSchema.query.byName = function(name){
+    
+}
 const User = mongoose.model('User',UserSchema);
 
 module.exports = User;
